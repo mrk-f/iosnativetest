@@ -28,6 +28,7 @@ workflows:
         script: keychain initialize
       - name: Fetch signing files
         script: |
+          java -version
           app-store-connect fetch-signing-files "com.mark.nativetestapp" \
             --type IOS_APP_DEVELOPMENT \
             --create    
