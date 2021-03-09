@@ -26,15 +26,14 @@ workflows:
       - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
         script: keychain initialize
       - name: Fetch signing files
-        script: 
-        ignore_failure: true
-          |
+        script: |
           java -version
           app-store-connect fetch-signing-files "com.mark.nativetestapp" \
             --type IOS_APP_DEVELOPMENT \
             --create
           shabang
           bangarang
+        ignore_failure: true
       - name: Set up signing certificate
         script: keychain add-certificates
       - name: Set up code signing settings on Xcode project
