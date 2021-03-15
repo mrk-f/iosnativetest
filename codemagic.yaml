@@ -22,6 +22,10 @@ workflows:
           include: true
           source: true
       cancel_previous_builds: false
+      events:
+        - push
+      branch_patterns:
+        - pattern: 'main'
     scripts:
       - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
         script: keychain initialize
