@@ -90,8 +90,8 @@ workflows:
           #!/bin/sh
           set -e
           set -x
-          agvtool new-version -all $BUILD_NUMBER
-          agvtool new-marketing-version 1.0.3
+          cd $FCI_BUILD_DIR/ios
+          agvtool new-version -all $(($BUILD_NUMBER + 1))
       - name: Build ipa for distribution
         script: xcode-project build-ipa --project "$XCODE_PROJECT" --scheme "$XCODE_SCHEME"
     artifacts:
